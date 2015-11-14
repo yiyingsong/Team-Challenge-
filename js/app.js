@@ -1,5 +1,9 @@
 'use strict'		
-
+angular.module('SignUpApp', [])
+.controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.email = {
+        text: 'me@example.com'
+      };
 		function validatePassword(){
 		  var password = document.getElementById("password")
 		  var confirm = document.getElementById("confirm");
@@ -10,3 +14,4 @@
 		  }
 		}
 
+}])
