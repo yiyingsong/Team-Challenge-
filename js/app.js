@@ -1,14 +1,12 @@
-var password = document.getElementById("password")
+'use strict'		
 
-confirm_password = document.getElementById("confirm");
+		function validatePassword(){
+		  var password = document.getElementById("password")
+		  var confirm = document.getElementById("confirm");
+		  if (password.value != confirm_password.value) {
+		  	confirm.setCustomValidity("passwords don't match");
+		  } else {
+		  	confirm.setCustomValidity('');
+		  }
+		}
 
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("passwords don't match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-confirm.onkeyup = validatePassword;
