@@ -41,11 +41,17 @@
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" required></br>
 
-			    <label for="password">Password</label> 
-			    <input type="password" name="password" id="password" class="form-control" required><br>
 
-			    <label for="confirm">Confirm Password</label> 
-			    <input type="password" name="confirm" id="confirm" class="form-control" required><br>  
+
+			    <label for="password">Password</label> 
+				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
+
+			    <label for="confirmPassword">Confirm Password</label> 
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-model="registration.user.confirmPassword" required compare-to="registration.user.password"/>
+				<div ng-messages="registrationForm.confirmPassword.$error" ng-messages-include="messages.html"></div>
+				</br>
+
+			    
 
 			</div>
 			<button type="button" class="btn btn-default" id="resetContent">Reset</button>
@@ -53,6 +59,5 @@
 		</form>
 	</div>
 </body>
-
 </html>
 

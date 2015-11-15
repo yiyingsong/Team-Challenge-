@@ -1,14 +1,36 @@
 'use strict'		
 
+angular.module('SignUpApp', [])
+.controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.email = {
+        text: 'me@example.com'
+    };
 
-angular.module('myApp', [])
-  .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
+    
 
-	$scope.validatePassword = function(){
-	  if (password.value != confirm_password.value) {
-	  	alert("passwords don't match");
-	  } 
-	};
-}
+}]);
+
+  var compareTo = function() {
+    return {
+        require: "ngModel",
+        scope: {
+            otherModelValue: "=compareTo"
+        },
+        link: function(scope, element, attributes, ngModel) {
+             
+            ngModel.$validators.compareTo = function(modelValue) {
+                return modelValue == scope.otherModelValue;
+            };
+ 
+            scope.$watch("otherModelValue", function() {
+                ngModel.$validate();
+            });
+        }
+    };
+};
+ 
+module.directive("compareTo", compareTo);
+
+
 
 
