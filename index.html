@@ -28,29 +28,37 @@
 			<div class="form-group">
 				<label for="email">Email</label>
 		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>			
-				<p class="help-block" style="color:red" ng-show="submitform.email.$error.required">We need to know your email.</p>
+				<p class="help-block" style="color:red" style="color:red" ng-show="submitform.email.$error.required">We need to know your email.</p>
 				<p class="help-block" style="color:red" ng-show="submitform.email.$error.email">Not valid email!</p></br>
 			
 			    <label for="firstNmae">First Name</label></br>
-				<input type="text" name="firstName" class="form-control" id="firstName" ng-model="firstname" placeholder="your first name"></br>
+				<input type="text" name="firstName" class="form-control" id="firstName" placeholder="your first name"></br>
 				  
 				<label for="lastName">Last Name</label></br>
-				<input type="text" name="lastName" class="form-control" id="lastName" ng-model="lastname" placeholder="your last name" ng-model="nameValidation" required>
+				<input type="text" name="lastName" class="form-control" id="lastName" placeholder="your last name" ng-model="nameValidation" required>
 				<p ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block" style="color:red">We need to know your last name.</p></br>
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
+<<<<<<< HEAD
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required></br>
 				<p ng-show="submitform.checkBirth()">Sorry, you have to be at least 13 to join.</p>
+=======
+				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" required></br>
+>>>>>>> c1c79ab44e02a1f929bd6abc91627bcdb55fb97a
 
 			    <label for="password">Password</label> 
-			    <input type="password" name="password" id="password" class="form-control" required><br>
+				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
 
-			    <label for="confirm">Confirm Password</label> 
-			    <input type="password" name="confirm" id="confirm" class="form-control" required><br>  
+			    <label for="confirmPassword">Confirm Password</label> 
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" keyUp="compareTo()" ng-model="confirmPassword" ng-required/>
+				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
+				</br>
+				
+
 
 			</div>
-			<button type="button" class="btn btn-default" id="resetContent" ng-click="reset()">Reset</button>
-			<button type="submit" class="btn btn-default" id="submitBtn" ng-disabled="submitform.$invalid">Sign Me Up!</button>
+			<button type="button" class="btn btn-default" id="resetContent">Reset</button>
+			<button type="submit" class="btn btn-default" id="submitBtn">Sign Me Up!</button>
 		</form>
 	</div>
 </body>

@@ -4,8 +4,8 @@ angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.email = {
         text: 'me@example.com'
-      };
-		function validatePassword(){
+    };
+	var xxx = function validatePassword(){
 		  var password = document.getElementById("password")
 		  var confirm = document.getElementById("confirm");
 		  if (password.value != confirm_password.value) {
@@ -14,7 +14,7 @@ angular.module('SignUpApp', [])
 		  	confirm.setCustomValidity('');
 		  }
 		}
-		console.log(Date.parse($scope.birthdate));
+	console.log(Date.parse($scope.birthdate));
 	$scope.checkBirth = function() {
 		var birthD = Date.parse($scope.birthdate);
 		console.log(birthD);
@@ -28,11 +28,14 @@ angular.module('SignUpApp', [])
 			}
 		}
 	}
-	$scope.reset = function() {
-		$scope.firstname = '';
-		$scope.lastname = '';
-		$scope.email = '';
-		$scope.birthdate = '';
+
+	$scope.compareTo = function() {
+		if ($scope.password != null && $scope.passwordConfirm != null && $scope.password === $scope.passwordConfirm) {
+			return true;
+		}
 	}
+
 }])
+
+
 
