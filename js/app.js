@@ -2,18 +2,18 @@
 
 angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.email = {
-        text: 'me@example.com'
-    };
 
-    $scope.reset = function() {
+    var reset = function() {
     	$scope.email.text = '';
     	$scope.firstname = '';
     	$scope.lastname = '';
     	$scope.birthdate = '';
     	$scope.password = '';
     	$scope.confirmPassword = '';
+    	$scope.submitform.$setPristine();
     }
+
+    $scope.reset = reset();
 
 	console.log(Date.parse($scope.birthdate));
 
@@ -42,6 +42,11 @@ angular.module('SignUpApp', [])
 		} else {
 			return false;
 		}
+	}
+
+	$scope.showMessage = function() {
+		reset();
+		var newM = angular.element('<div class="alert alert-success"><strong>Success!</strong> Indicates a successful or positive action.</div>');
 	}
 
 }])
