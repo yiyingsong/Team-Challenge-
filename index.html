@@ -46,8 +46,8 @@
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
 
 			    <label for="confirmPassword">Confirm Password</label> 
-				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" keyUp="compareTo()" ng-model="confirmPassword" ng-required/>
-				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" ng-required/>
+				<p ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
 				</br>
 				
 
