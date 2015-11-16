@@ -30,7 +30,7 @@
 
 			<div class="form-group">
 				<label for="email">Email</label>
-		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>			
+		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email" required>			
 				<p class="help-block" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
 				<p class="help-block" ng-show="submitform.email.$error.email">Not valid email!</p></br>
 			
@@ -55,7 +55,7 @@
 				</br>
 
 			</div>
-			<button type="button" class="btn btn-default" id="resetContent" ng-click="reset()">Reset</button>
+			<button type="button" class="btn btn-default" id="resetContent" ng-click="resetBtn()">Reset</button>
 			<button type="submit" class="btn btn-default" id="submitBtn" ng-disabled="submitform.$invalid" ng-click="showMessage()">Sign Me Up!</button>
 		</form>
 	</div>

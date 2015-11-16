@@ -3,17 +3,15 @@
 angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 
-    var reset = function() {
-    	$scope.email = '';
-    	$scope.firstname = '';
-    	$scope.lastname = '';
-    	$scope.birthdate = '';
-    	$scope.password = '';
-    	$scope.confirmPassword = '';
+    $scope.resetBtn = function() {
+    	$scope.email = null;
+    	$scope.firstname = null;
+    	$scope.lastname = null;
+    	$scope.birthdate = null;
+    	$scope.password = null;
+    	$scope.confirmPassword = null;
     	//$scope.submitform.$setPristine();
-    }
-
-    $scope.reset = reset();
+    };
 
 	console.log(Date.parse($scope.birthdate));
 
@@ -33,7 +31,8 @@ angular.module('SignUpApp', [])
 				$scope.check = true;
 			}
 		}
-	}
+	};
+
 	$scope.compareTo = function() {
 		console.log($scope.password);
 		console.log($scope.confirmPassword);
@@ -42,13 +41,13 @@ angular.module('SignUpApp', [])
 		} else {
 			return false;
 		}
-	}
+	};
 
 	$scope.clicked = false;
+
 	$scope.showMessage = function() {
-		reset();
 		$scope.clicked = true;
-	}
+	};
 
 }])
 
