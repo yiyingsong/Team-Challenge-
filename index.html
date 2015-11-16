@@ -41,14 +41,12 @@
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" required></br>
 
-
-
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
 
 			    <label for="confirmPassword">Confirm Password</label> 
 				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" keyUp="compareTo()" ng-model="confirmPassword" ng-required/>
-				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()">Passwords do not match.</p>
+				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
 				</br>
 				
 

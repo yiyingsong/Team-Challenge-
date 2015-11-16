@@ -12,8 +12,7 @@ angular.module('SignUpApp', [])
 		}
 	}
     
-}]);
-
+}])
 
 
 
