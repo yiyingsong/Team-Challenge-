@@ -39,12 +39,8 @@
 				<p ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block" style="color:red">We need to know your last name.</p></br>
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
-
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required></br>
 				<p ng-show="submitform.checkBirth()">Sorry, you have to be at least 13 to join.</p>
-
-				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" required></br>
-
 
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
@@ -54,6 +50,8 @@
 				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
 				</br>
 				
+
+
 			</div>
 			<button type="button" class="btn btn-default" id="resetContent">Reset</button>
 			<button type="submit" class="btn btn-default" id="submitBtn">Sign Me Up!</button>
@@ -61,6 +59,3 @@
 	</div>
 </body>
 </html>
-
-
-
