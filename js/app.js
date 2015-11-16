@@ -4,13 +4,13 @@ angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 
     var reset = function() {
-    	$scope.email.text = '';
+    	$scope.email = '';
     	$scope.firstname = '';
     	$scope.lastname = '';
     	$scope.birthdate = '';
     	$scope.password = '';
     	$scope.confirmPassword = '';
-    	$scope.submitform.$setPristine();
+    	//$scope.submitform.$setPristine();
     }
 
     $scope.reset = reset();
