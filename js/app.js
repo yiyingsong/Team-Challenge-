@@ -2,9 +2,6 @@
 
 angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.email = {
-        text: 'me@example.com'
-    };
 
     $scope.reset = function() {
     	$scope.email.text = '';
@@ -13,6 +10,7 @@ angular.module('SignUpApp', [])
     	$scope.birthdate = '';
     	$scope.password = '';
     	$scope.confirmPassword = '';
+    	$scope.submitform.$setPristine();
     }
 
 	console.log(Date.parse($scope.birthdate));
