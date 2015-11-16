@@ -14,6 +14,14 @@ angular.module('SignUpApp', [])
 		  	confirm.setCustomValidity('');
 		  }
 		}
-
+		console.log(Date.parse($scope.birthD));
+	var check = function() {
+		var birthD = Date.parse($scope.birthD);
+		console.log(birthD);
+		if (birthD == 'NaN') {
+			$scope.validDate = false;
+		} else {
+		}
+	}
 }])
 
