@@ -5,22 +5,26 @@ angular.module('SignUpApp', [])
 	$scope.email = {
         text: 'me@example.com'
     };
-	
+
 	console.log(Date.parse($scope.birthdate));
+
 	$scope.checkBirth = function() {
 		var birthD = Date.parse($scope.birthdate);
 		console.log(birthD);
+		var newD = new Date();
+		console.log(newD);
 		if (birthD == 'NaN') {
-			return false;
+			$scope.check = false;
 		} else {
-			if (birthD == 0) {
-				return false;
+			console.log(Date.parse(newD));
+			console.log(Date.parse(newD) - 410290189000);
+			if (birthD < Date.parse(newD) - 410290189000) {
+				$scope.check = false;
 			} else {
-				return true;
+				$scope.check = true;
 			}
 		}
 	}
-
 	$scope.compareTo = function() {
 		console.log($scope.password);
 		console.log($scope.confirmPassword);
