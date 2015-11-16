@@ -24,7 +24,7 @@
 		<h1>Sign Up</h1>
 		<h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
 		<div class="alert alert-success" id="success" ng-show="clicked">
-			<strong>Success!</strong> You have successfully signed up!
+			<strong>Great!</strong> You have successfully signed up!
 		</div>
 		<form name="submitform" id="submitForm" nonvalidate>
 
@@ -43,7 +43,7 @@
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required>
-				<p class="help-block"  id="birthRequired" ng-show="submitform.birthdate.$error.required && !submitform.birthdate.$pristine">Please enter a birthdate</p>
+				<p class="help-block"  id="birthRequired" ng-show="(submitform.birthdate.$error.required && submitform.birthdate.$touched) || (submitform.birthdate.$error.required && !submitform.birthdate.$pristine)">Please enter a birthdate</p>
 				<p class="help-block" id="birthSmall" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
 
 			    <label for="password">Password</label> 
