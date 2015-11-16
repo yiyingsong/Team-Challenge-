@@ -29,7 +29,7 @@
 			<div class="form-group">
 				<label for="email">Email</label>
 		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>			
-				<p class="help-block" style="color:red" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
+				<p class="help-block" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
 				<p class="help-block" ng-show="submitform.email.$error.email">Not valid email!</p></br>
 			
 			    <label for="firstNmae">First Name</label></br>
