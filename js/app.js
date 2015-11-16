@@ -6,6 +6,15 @@ angular.module('SignUpApp', [])
         text: 'me@example.com'
     };
 
+    $scope.reset = function() {
+    	$scope.email.text = '';
+    	$scope.firstname = '';
+    	$scope.lastname = '';
+    	$scope.birthdate = '';
+    	$scope.password = '';
+    	$scope.confirmPassword = '';
+    }
+
 	console.log(Date.parse($scope.birthdate));
 
 	$scope.checkBirth = function() {
