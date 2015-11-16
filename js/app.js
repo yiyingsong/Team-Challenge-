@@ -5,15 +5,7 @@ angular.module('SignUpApp', [])
 	$scope.email = {
         text: 'me@example.com'
     };
-	var xxx = function validatePassword(){
-		  var password = document.getElementById("password")
-		  var confirm = document.getElementById("confirm");
-		  if (password.value != confirm_password.value) {
-		  	confirm.setCustomValidity("passwords don't match");
-		  } else {
-		  	confirm.setCustomValidity('');
-		  }
-		}
+    
 	console.log(Date.parse($scope.birthdate));
 	$scope.checkBirth = function() {
 		var birthD = Date.parse($scope.birthdate);
