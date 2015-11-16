@@ -23,7 +23,9 @@
 
 		<h1>Sign Up</h1>
 		<h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
-		<div ng-model="message"></div>
+		<div class="alert alert-success" id="success" ng-show="clicked">
+			<strong>Success!</strong> You have successfully signed up!
+		</div>
 		<form name="submitform" id="submitForm" nonvalidate>
 
 			<div class="form-group">
@@ -41,7 +43,8 @@
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required>
-				<p class="help-block" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
+				<p class="help-block"  id="birthRequired" ng-show="submitform.birthdate.$error.required && !submitform.birthdate.$pristine">Please enter a birthdate</p>
+				<p class="help-block" id="birthSmall" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
 
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" required/></br>
@@ -50,8 +53,6 @@
 				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" required/>
 				<p class="help-block" ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()">Passwords do not match.</p>
 				</br>
-				
-
 
 			</div>
 			<button type="button" class="btn btn-default" id="resetContent" ng-click="reset()">Reset</button>

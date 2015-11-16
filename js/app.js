@@ -4,13 +4,13 @@ angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 
     var reset = function() {
-    	$scope.email.text = '';
+    	$scope.email = '';
     	$scope.firstname = '';
     	$scope.lastname = '';
     	$scope.birthdate = '';
     	$scope.password = '';
     	$scope.confirmPassword = '';
-    	$scope.submitform.$setPristine();
+    	//$scope.submitform.$setPristine();
     }
 
     $scope.reset = reset();
@@ -44,9 +44,10 @@ angular.module('SignUpApp', [])
 		}
 	}
 
+	$scope.clicked = false;
 	$scope.showMessage = function() {
 		reset();
-		var newM = angular.element('<div class="alert alert-success"><strong>Success!</strong> Indicates a successful or positive action.</div>');
+		$scope.clicked = true;
 	}
 
 }])
