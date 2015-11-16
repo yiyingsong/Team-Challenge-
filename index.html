@@ -40,7 +40,7 @@
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required></br>
-				<p ng-show="submitform.checkBirth()">Sorry, you have to be at least 13 to join.</p>
+				<p ng-show="check">Sorry, you have to be at least 13 to join.</p>
 
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
