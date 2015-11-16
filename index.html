@@ -40,14 +40,14 @@
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required></br>
-				<p ng-show="submitform.checkBirth()">Sorry, you have to be at least 13 to join.</p>
+				<p ng-show="check">Sorry, you have to be at least 13 to join.</p>
 
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
 
 			    <label for="confirmPassword">Confirm Password</label> 
-				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" keyUp="compareTo()" ng-model="confirmPassword" ng-required/>
-				<p ng-if="password.length > 0 && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" ng-required/>
+				<p ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
 				</br>
 				
 
