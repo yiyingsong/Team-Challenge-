@@ -35,8 +35,12 @@ angular.module('SignUpApp', [])
 		}
 	}
 	$scope.compareTo = function() {
-		if ($scope.password != null && $scope.passwordConfirm != null && $scope.password === $scope.passwordConfirm) {
+		console.log($scope.password);
+		console.log($scope.confirmPassword);
+		if ($scope.password != null && $scope.confirmPassword != null && $scope.password === $scope.confirmPassword) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
