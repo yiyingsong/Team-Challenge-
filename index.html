@@ -28,26 +28,26 @@
 			<div class="form-group">
 				<label for="email">Email</label>
 		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>			
-				<p class="help-block" style="color:red" style="color:red" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
-				<p class="help-block" style="color:red" ng-show="submitform.email.$error.email">Not valid email!</p></br>
+				<p class="help-block" style="color:red" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
+				<p class="help-block" ng-show="submitform.email.$error.email">Not valid email!</p></br>
 			
 			    <label for="firstNmae">First Name</label></br>
 				<input type="text" name="firstName" class="form-control" id="firstName" ng-model="firstname" placeholder="your first name"></br>
 				  
 				<label for="lastName">Last Name</label></br>
 				<input type="text" name="lastName" class="form-control" id="lastName" placeholder="your last name" ng-model="lastname" required>
-				<p ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block" style="color:red">We need to know your last name.</p></br>
+				<p class="help-block" ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block">We need to know your last name.</p></br>
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required>
-				<p ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
+				<p class="help-block" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
 
 			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-required/></br>
 
 			    <label for="confirmPassword">Confirm Password</label> 
 				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" ng-required/>
-				<p ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()" style="color:red">Passwords do not match.</p>
+				<p class="help-block" ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()">Passwords do not match.</p>
 				</br>
 				
 
