@@ -2,7 +2,7 @@
 
 angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.emailAddress = {
+	$scope.email = {
         text: 'me@example.com'
       };
 		function validatePassword(){
@@ -26,7 +26,7 @@ angular.module('SignUpApp', [])
 	$scope.reset = function() {
 		$scope.firstname = '';
 		$scope.lastname = '';
-		$scope.emailAddress = '';
+		$scope.email = '';
 		$scope.birthdate = '';
 	}
 }])
