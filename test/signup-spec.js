@@ -111,17 +111,28 @@ describe('SignUp Web', function(){
     });*/
 
     it ('should show a message when user does not click submit', function() {
+        element(by.id('email')).sendKeys('wangz58@uw.edu');
+        element(by.id('lastName')).sendKeys('w');
+        element(by.id('birthDate')).sendKeys('1/1/2000');
+        element(by.id('password')).sendKeys('1');
+        element(by.id('confirmPassword')).sendKeys('1');
+        browser.pause();
         var message = element(by.id('success'));
         expect(message.isDisplayed()).toEqual(false);
     });
-})
+
     /*it ('should show a message when user clicked submit', function() {
+        element(by.id('email')).sendKeys('wangz58@uw.edu');
+        element(by.id('lastName')).sendKeys('w');
+        element(by.id('birthDate')).sendKeys('1/1/2000');
+        element(by.id('password')).sendKeys('1');
+        element(by.id('confirmPassword')).sendKeys('1');
         var button = element(by.id('submitBtn'));
         button.click();
 
         var message = element(by.id('success'));
-        expect(message).isPresent();
+        expect(message.isDisplayed()).toEqual(true);
     });
 
-
+})
 
