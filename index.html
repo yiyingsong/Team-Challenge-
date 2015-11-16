@@ -39,7 +39,8 @@
 				<p ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block" style="color:red">We need to know your last name.</p></br>
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
-				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" required></br>
+				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required></br>
+				<p ng-show="submitform.checkBirth()">Sorry, you have to be at least 13 to join.</p>
 
 			    <label for="password">Password</label> 
 			    <input type="password" name="password" id="password" class="form-control" required><br>
