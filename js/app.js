@@ -33,6 +33,7 @@ angular.module('SignUpApp', [])
 	$scope.compareTo = function() {
 		console.log($scope.password);
 		console.log($scope.confirmPassword);
+		//check whether the password and confirm password are empty and whether they are the same.
 		if ($scope.password != null && $scope.confirmPassword != null && $scope.password === $scope.confirmPassword) {
 			return true;
 		} else {
