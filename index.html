@@ -30,6 +30,7 @@
 				
 				<!-- user can type in their email and it is required  -->
 				<label for="email">Email</label>
+<<<<<<< HEAD
 		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>
 		  		<!-- shows corresponding error message if the email is blank or invalid -->			
 				<p ng-model="noEmail" class="help-block" ng-show="(submitform.email.$error.required && submitform.email.$touched) || (submitform.email.$error.required && !submitform.email.$pristine)">We need to know your email.</p>
@@ -50,15 +51,14 @@
 				<p class="help-block" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
 
 			    <label for="password">Password</label> 
-				<input type="password" id="password" name="password" class="form-control" ng-model="password" required/></br>
+				<input type="password" id="password" name="password" class="form-control" ng-model="password" required/>
+				<p class="help-block" ng-show="(submitform.password.$error.required && submitform.password.$touched) || (submitform.password.$error.required && !submitform.password.$pristine)" class="help-block">Password required!</p></br>
 
 			    <label for="confirmPassword">Confirm Password</label> 
 				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" required/>
 				<p class="help-block" ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()">Passwords do not match.</p>
 				</br>
 				
-
-
 			</div>
 			<button type="button" class="btn btn-default" id="resetContent" ng-click="reset()">Reset</button>
 			<button type="submit" class="btn btn-default" id="submitBtn" ng-disabled="submitform.$invalid" ng-click="showMessage()">Sign Me Up!</button>
