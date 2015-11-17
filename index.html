@@ -27,17 +27,23 @@
 		<form name="submitform" id="submitForm" nonvalidate>
 
 			<div class="form-group">
+				
+				<!-- user can type in their email and it is required  -->
 				<label for="email">Email</label>
-		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>			
-				<p class="help-block" ng-show="submitform.email.$error.required && !submitform.email.$pristine">We need to know your email.</p>
-				<p class="help-block" ng-show="submitform.email.$error.email">Not valid email!</p></br>
+		  		<input type="email" name="email" class="form-control" id="email" placeholder="email address" ng-model="email.text" required>
+		  		<!-- shows corresponding error message if the email is blank or invalid -->			
+				<p ng-model="noEmail" class="help-block" ng-show="(submitform.email.$error.required && submitform.email.$touched) || (submitform.email.$error.required && !submitform.email.$pristine)">We need to know your email.</p>
+				<p ng-model="invalidEmail" class="help-block" ng-show="submitform.email.$error.email">Not valid email!</p></br>
 			
+				<!-- user can put in their first name but it is not required -->
 			    <label for="firstNmae">First Name</label></br>
 				<input type="text" name="firstName" class="form-control" id="firstName" ng-model="firstname" placeholder="your first name"></br>
-				  
+				 
+				<!-- use can put in their last name and it is required --> 
 				<label for="lastName">Last Name</label></br>
-				<input type="text" name="lastName" class="form-control" id="lastName" placeholder="your last name" ng-model="lastname" required>
-				<p class="help-block" ng-show="submitform.lastName.$invalid && !submitform.lastName.$pristine" class="help-block">We need to know your last name.</p></br>
+				<input type="text" name="lastName" class="form-control" id="lastName" placeholder="your last name" ng-model="lastName" required>
+				<!-- shows the error message if the field is left blank after touching it -->
+				<p ng-model="noLastName" class="help-block" ng-show="(submitform.lastName.$error.required && submitform.lastName.$touched) || (submitform.lastName.$error.required && !submitform.lastName.$pristine)" class="help-block">We need to know your last name.</p></br>
 
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required>
