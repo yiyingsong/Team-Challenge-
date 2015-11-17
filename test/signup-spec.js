@@ -147,6 +147,7 @@ describe('SignUp Web', function(){
         expect(noLastName.isDisplayed() ).toEqual(false);
     });   
 
+    //test whether the required message show when the password and confirm password are empty
     it('should be invalid when password and confirm password are empty', function(){
         var password = element(by.model('password'));
         var confirmPassword = element(by.model('confirmPassword'));
@@ -155,12 +156,14 @@ describe('SignUp Web', function(){
         expect(password != null && confirmPassword != null ).toEqual(true);
     });
     
+    //test whether the not matching allert is disappeared when two passwords are matching.
     it('should be valid when passwords are matching', function(){
         var password = element(by.model('password')).sendKeys('123');
         var confirmPassword = element(by.model('confirmPassword')).sendKeys('123');
         expect(password.getAttribute('value')).toEqual(confirmPassword.getAttribute('value'));         
     });
 
+    //test whether the not matching alert shows when two passwords are not matching.
     it('should be invalid when passwords are not matching', function(){
         var password = element(by.model('password')).sendKeys('123');
         var confirmPassword = element(by.model('confirmPassword')).sendKeys('1234');
