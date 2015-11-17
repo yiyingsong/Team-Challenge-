@@ -7,17 +7,28 @@ describe('SignUp Web', function(){
       browser.get('http://localhost:8000');
     });   
 
+    it ('should display required-message when birthdate is blank', function() {
+        var birthdate = element(by.id('birthDate'));
+        birthdate.sendKeys('we');
+        birthdate.clear();
+        var birthreq = element(by.id('birthReq'));
+        expect(birthreq.isDisplayed()).toEqual(true);
+    })
+
     // test whether the message is hiden when user has never touched the birthdate input
-    it ('should hide required-birthdate message when birthdate is not touched', function() {
+    it ('should hide valid-birthdate message when birthdate is not touched or valid', function() {
         var birthreq = element(by.id('birthRequired'));
+        expect(birthreq.isDisplayed()).toEqual(false);
+
+        var birth = element(by.id('birthDate'));
+        birth.sendKeys('1/1/2000');
         expect(birthreq.isDisplayed()).toEqual(false);
     });
 
     // test whether the message shows up when user touched birthdate input but doesn't give any input
-    it('should show required-birthdate message when birthdate is touched but left empty', function() {
+    it('should show valid-birthdate message when birthdate is not valid', function() {
         var birth = element(by.id('birthDate'));
-        birth.sendKeys(' ');
-        birth.clear();
+        birth.sendKeys('sx');
         var birthreq = element(by.id('birthRequired'));
         expect(birthreq.isDisplayed()).toEqual(true);
     });

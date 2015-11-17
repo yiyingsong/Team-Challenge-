@@ -12,22 +12,27 @@ angular.module('SignUpApp', [])
 
 	// check whether user is below 13 years old
 	$scope.checkBirth = function() {
+		$scope.birthInfo = {};
 		var birthD = Date.parse($scope.birthdate);
 		console.log(birthD);
 		var newD = new Date();
 		console.log(newD);
-		if (birthD == 'NaN') {
-			$scope.check = false;
+		if (isNaN(birthD)) {
+			$scope.birthInfo.check = true;
+			console.log($scope.birthInfo.check);
 		} else {
 			console.log(Date.parse(newD));
 			console.log(Date.parse(newD) - 410290189000);
 			// check whether user was born 13 years before the current day
-			if (birthD < Date.parse(newD) - 410290189000) {
-				$scope.check = false;
+			if (birthD <= Date.parse(newD) - 410290189000) {
+				$scope.birthInfo.checkAge = false;
+				console.log($scope.birthInfo.checkAge);
 			} else {
-				$scope.check = true;
+				$scope.birthInfo.checkAge = true;
+				console.log($scope.birthInfo.checkAge);
 			}
 		}
+		console.log($scope.birthInfo);
 	};
 
 	$scope.compareTo = function() {

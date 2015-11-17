@@ -50,13 +50,14 @@
 				<!-- user should put in their birthdate -->
 				<label for="birthdate" id="birthLabel">Birthdate</label>
 				<input type="text" name="birthdate" class="form-control" id="birthDate" placeholder="your birthdate" ng-model="birthdate" ng-change="checkBirth()" required>
-				<!-- display required message if user didn't enter a birth date -->
-				<p class="help-block"  id="birthRequired" ng-show="(submitform.birthdate.$error.required && submitform.birthdate.$touched) || (submitform.birthdate.$error.required && !submitform.birthdate.$pristine)">Please enter a birthdate</p>
+				<!-- display required message if user didn't enter a valid birth date -->
+				<p class="help-block" id="birthReq" ng-show="(submitform.birthdate.$error.required && submitform.birthdate.$touched) || (submitform.birthdate.$error.required && !submitform.birthdate.$pristine)">Birthdate is required.</p>
+				<p class="help-block"  id="birthRequired" ng-show="birthInfo.check && birthdate != null">Please enter a valid birthdate</p>
 				<!-- refuse to sign up users that are not 13 years old -->
-				<p class="help-block" id="birthSmall" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
+				<p class="help-block" id="birthSmall" ng-show="birthInfo.checkAge">Sorry, you have to be at least 13 to join.</p></br>
 				
 				<!-- user should put in the password and it's required. -->
-			        <label for="password">Password</label> 
+			    <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" required/>
 				<!-- display required message if user didn't enter a password -->
 				<p class="help-block" ng-show="(submitform.password.$error.required && submitform.password.$touched) || (submitform.password.$error.required && !submitform.password.$pristine)" class="help-block">Password required!</p></br>
