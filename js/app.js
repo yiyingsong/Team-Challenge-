@@ -4,14 +4,7 @@ angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.resetBtn = function() {
-    	//location.reload();
-    	$scope.email = null;
-    	$scope.firstname = null;
-    	$scope.lastname = null;
-    	$scope.birthdate = null;
-    	$scope.password = null;
-    	$scope.confirmPassword = null;
-    	$scope.submitform.$setPristine();
+    	location.reload();
     };
 
 	console.log(Date.parse($scope.birthdate));
@@ -47,6 +40,7 @@ angular.module('SignUpApp', [])
 	$scope.clicked = false;
 
 	$scope.showMessage = function() {
+		$scope.resetBtn;
 		$scope.clicked = true;
 	};
 
