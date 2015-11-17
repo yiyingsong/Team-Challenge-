@@ -180,4 +180,7 @@ describe('SignUp Web', function(){
         var message = element(by.id('success'));
         expect(message.isDisplayed()).toEqual(true);
     });
+
 })
+
+
