@@ -54,13 +54,17 @@
 				<p class="help-block"  id="birthRequired" ng-show="(submitform.birthdate.$error.required && submitform.birthdate.$touched) || (submitform.birthdate.$error.required && !submitform.birthdate.$pristine)">Please enter a birthdate</p>
 				<!-- refuse to sign up users that are not 13 years old -->
 				<p class="help-block" id="birthSmall" ng-show="check">Sorry, you have to be at least 13 to join.</p></br>
-
-			    <label for="password">Password</label> 
+				
+				<!-- user should put in the password and it's required. -->
+			        <label for="password">Password</label> 
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" required/>
+				<!-- display required message if user didn't enter a password -->
 				<p class="help-block" ng-show="(submitform.password.$error.required && submitform.password.$touched) || (submitform.password.$error.required && !submitform.password.$pristine)" class="help-block">Password required!</p></br>
-
-			    <label for="confirmPassword">Confirm Password</label> 
+				
+				<!-- user should put the password again to confirm. -->
+			        <label for="confirmPassword">Confirm Password</label> 
 				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-change="compareTo()" ng-model="confirmPassword" required/>
+				<!-- display "not matching" message if user enters a different password -->
 				<p class="help-block" ng-show="password.length > 0  && confirmPassword.length > 0 && !compareTo()">Passwords do not match.</p>
 				</br>
 
