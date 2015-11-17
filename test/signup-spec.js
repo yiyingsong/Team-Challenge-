@@ -7,6 +7,86 @@ describe('SignUp Web', function(){
       browser.get('http://localhost:8000');
     });   
 
+    // test whether the message is hiden when user has never touched the birthdate input
+    it ('should hide required-birthdate message when birthdate is not touched', function() {
+        var birthreq = element(by.id('birthRequired'));
+        expect(birthreq.isDisplayed()).toEqual(false);
+    });
+
+    // test whether the message shows up when user touched birthdate input but doesn't give any input
+    it('should show required-birthdate message when birthdate is touched but left empty', function() {
+        var birth = element(by.id('birthDate'));
+        birth.sendKeys(' ');
+        birth.clear();
+        var birthreq = element(by.id('birthRequired'));
+        expect(birthreq.isDisplayed()).toEqual(true);
+    });
+
+    // test whether the message is shown when user is not 13 yet
+    it ('should show not-qualified message when user is less than 13 years old', function() {
+        var birth = element(by.id('birthDate'));
+        birth.sendKeys('1/1/2003');
+
+        var birthqualified = element(by.id('birthSmall'));
+        expect(birthqualified.isDisplayed()).toEqual(true);
+    });
+
+    // test whether the message is hided when user is more than 13 years old
+    it ('should hide not-qualified message when user is above 13 years old', function() {
+        var birth = element(by.id('birthDate'));
+        birth.sendKeys('1/1/2000');
+
+        var birthqualified = element(by.id('birthSmall'));
+        expect(birthqualified.isDisplayed()).toEqual(false);
+    });
+
+    // test whether reset button empties each input box
+    it ('should empty each input box when clicked reset', function() {
+        var reset = element(by.id('submitBtn'));
+
+        var email = element(by.id('email'));
+        var firstname = element(by.id('firstName'));
+        var lastname = element(by.id('lastName'));
+        var birthdate = element(by.id('birthDate'));
+        var password = element(by.id('password'));
+        var confirmpassword = element(by.id('confirmPassword'));
+        // write something in each input boxes
+        email.sendKeys('wangz58@uw.edu');
+        firstname.sendKeys('hey');
+        lastname.sendKeys('w');
+        birthdate.sendKeys('1/1/2000');
+        password.sendKeys('1');
+        confirmpassword.sendKeys('1');
+
+        reset.click();
+        // get the text value in each input and check whether it is empty
+        expect(email.getText()).toEqual('');
+        expect(firstname.getText()).toEqual('');
+        expect(lastname.getText()).toEqual('');
+        expect(birthdate.getText()).toEqual('');
+        expect(password.getText()).toEqual('');
+        expect(confirmpassword.getText()).toEqual('');
+    });
+
+    // test whether the submit button is disabled when form is invalid and enabled otherwise
+    it ('should disable the submit button when form is invalid and enable it when form is valid', function() {
+        var submit = element(by.id('submitBtn'));
+        expect(submit.isEnabled()).toEqual(false);
+
+        element(by.id('email')).sendKeys('wangz58@uw.edu');
+        element(by.id('lastName')).sendKeys('w');
+        element(by.id('birthDate')).sendKeys('1/1/2000');
+        element(by.id('password')).sendKeys('1');
+        element(by.id('confirmPassword')).sendKeys('1');
+        expect(submit.isEnabled()).toEqual(true);
+    });
+
+
+    it ('should hide a message when user does not click submit', function() {
+        var message = element(by.id('success'));
+        expect(message.isDisplayed()).toEqual(false);
+    });
+
     // test if the page displays invalid email message if the email is invalid
     it("should show that email is invalid message if the e-mail is not in corret form", function() {
         // set the email user put in to email and error message to invalidEmail 
@@ -87,4 +167,17 @@ describe('SignUp Web', function(){
         expect(password.getAttribute('value')).not.toEqual(confirmPassword.getAttribute('value'));         
     });
 
+    // test whether the success message is displayed after submit button is clicked
+    it ('should show a message when user clicked submit', function() {
+        element(by.id('email')).sendKeys('wangz58@uw.edu');
+        element(by.id('lastName')).sendKeys('w');
+        element(by.id('birthDate')).sendKeys('1/1/2000');
+        element(by.id('password')).sendKeys('1');
+        element(by.id('confirmPassword')).sendKeys('1');
+        var button = element(by.id('submitBtn'));
+        button.click();
+
+        var message = element(by.id('success'));
+        expect(message.isDisplayed()).toEqual(true);
+    });
 })

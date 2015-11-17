@@ -3,20 +3,14 @@
 angular.module('SignUpApp', [])
 .controller('MyCtrl', ['$scope', '$http', function($scope, $http) {
 
-    var reset = function() {
-    	$scope.email = '';
-    	$scope.firstname = '';
-    	$scope.lastname = '';
-    	$scope.birthdate = '';
-    	$scope.password = '';
-    	$scope.confirmPassword = '';
-    	//$scope.submitform.$setPristine();
-    }
-
-    $scope.reset = reset();
+	// empty each input by reloading the page
+    $scope.resetBtn = function() {
+    	location.reload();
+    };
 
 	console.log(Date.parse($scope.birthdate));
 
+	// check whether user is below 13 years old
 	$scope.checkBirth = function() {
 		var birthD = Date.parse($scope.birthdate);
 		console.log(birthD);
@@ -27,13 +21,15 @@ angular.module('SignUpApp', [])
 		} else {
 			console.log(Date.parse(newD));
 			console.log(Date.parse(newD) - 410290189000);
+			// check whether user was born 13 years before the current day
 			if (birthD < Date.parse(newD) - 410290189000) {
 				$scope.check = false;
 			} else {
 				$scope.check = true;
 			}
 		}
-	}
+	};
+
 	$scope.compareTo = function() {
 		console.log($scope.password);
 		console.log($scope.confirmPassword);
@@ -42,12 +38,16 @@ angular.module('SignUpApp', [])
 		} else {
 			return false;
 		}
-	}
+	};
 
+	// a variable to decide whether the success message is displayed.
+	$scope.clicked = false;
+
+	// only show the success message when user submit their form
 	$scope.showMessage = function() {
-		reset();
-		var newM = angular.element('<div class="alert alert-success"><strong>Success!</strong> Indicates a successful or positive action.</div>');
-	}
+		$scope.resetBtn;
+		$scope.clicked = true;
+	};
 
 }])
 
